@@ -1,60 +1,136 @@
 const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const extensions = ['*', '.js', '.jsx', '.css', '.scss'];
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
-  entry: [
-    'react-hot-loader/patch',
-    './src/index.js'
-  ],
-  module: {
-    rules: [
-      {
-        test: /.scss$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              camelCase: 'dashes',
-              localIdentName: '[path][name]__[local]'
-            }
-          },
-          {
-            loader: 'resolve-url-loader'
-          },
-          {
-            loader: 'sass-loader'
-          },
-          {
-            loader: 'postcss-loader'
-          }
-        ]
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
-      }
+const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
+  inject: 'body'
+});
+
+module.exports = [
+  {
+    name: 'client',
+    entry: [
+      'react-hot-loader/patch',
+      './src/client.js'
+    ],
+    target: 'web',
+    output: {
+      path: path.join(__dirname, '../build'),
+      publicPath: '/build/',
+      filename: 'client.js'
+    },
+		devtool: 'source-map',
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  camelCase: 'dashes',
+                  minimize: true,
+                  sourceMap: true,
+                  localIdentName: '[name]__[local]__[hash:base64:5]'
+                }
+              },
+              {
+                loader: 'resolve-url-loader'
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                    sourceMap: true
+                }
+              },
+              {
+                loader: 'postcss-loader'
+              }
+            ]
+          })
+        },
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: ['babel-loader']
+        }
+      ]
+    },
+    resolve: {
+      extensions: extensions
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new ExtractTextPlugin({
+        filename: '[name].css',
+        allChunks: true
+      })
     ]
   },
-  resolve: {
-    extensions: ['*', '.js', '.jsx'],
-    alias: {
-      styles: path.resolve(__dirname, '../src/styles')
-    }
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash].css'
-    }),
-  ],
-  devServer: {
-    contentBase: './dist',
-    hot: true
+  {
+    name: 'server',
+    target: 'node',
+    entry: [
+      './src/server.js'
+    ],
+    output: {
+      path: path.join(__dirname, '../build'),
+      publicPath: '/build/',
+      filename: 'server.js',
+      libraryTarget: 'commonjs2'
+    },
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  camelCase: 'dashes',
+                  minimize: true,
+                  sourceMap: true,
+                  localIdentName: '[name]__[local]__[hash:base64:5]'
+                }
+              },
+              {
+                loader: 'resolve-url-loader'
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true
+                }
+              },
+              {
+                loader: 'postcss-loader'
+              }
+            ]
+          })
+        },
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: ['babel-loader']
+        },
+      ]
+    },
+    resolve: {
+      extensions: extensions
+    },
+    plugins: [
+      new ExtractTextPlugin({
+        filename: '[name].css',
+        allChunks: true
+      })
+    ]
   }
-};
+];
