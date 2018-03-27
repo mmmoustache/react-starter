@@ -3,6 +3,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const extensions = ['*', '.js', '.jsx', '.css', '.scss'];
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   inject: 'body'
@@ -12,7 +13,7 @@ module.exports = [
   {
     name: 'client',
     entry: [
-      'react-hot-loader/patch',
+      'webpack-hot-middleware/client',
       './src/client.js'
     ],
     target: 'web',
@@ -26,7 +27,7 @@ module.exports = [
       rules: [
         {
           test: /\.scss$/,
-          use: ExtractTextPlugin.extract({
+          use: ['extracted-loader'].concat(ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: [
               {
@@ -52,7 +53,7 @@ module.exports = [
                 loader: 'postcss-loader'
               }
             ]
-          })
+          }))
         },
         {
           test: /\.(js|jsx)$/,
@@ -67,17 +68,15 @@ module.exports = [
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new ExtractTextPlugin({
-        filename: '[name].css',
+        filename: 'client.css',
         allChunks: true
-      })
+      }),
     ]
   },
   {
     name: 'server',
     target: 'node',
-    entry: [
-      './src/server.js'
-    ],
+    entry: './src/server.js',
     output: {
       path: path.join(__dirname, '../build'),
       publicPath: '/build/',
@@ -128,9 +127,10 @@ module.exports = [
     },
     plugins: [
       new ExtractTextPlugin({
-        filename: '[name].css',
-        allChunks: true
-      })
+        filename: 'server.css',
+        allChunks: true,
+      }),
+      new WriteFilePlugin(),
     ]
   }
 ];

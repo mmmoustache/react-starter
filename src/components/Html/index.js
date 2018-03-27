@@ -7,6 +7,8 @@ export default ({markup, data}) => {
 	<title></title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/build/client.css" />
+	<link rel="stylesheet" href="/build/server.css" />
 </head>
 <body>
 	<div id="root">${markup}</div>

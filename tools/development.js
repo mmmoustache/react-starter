@@ -12,8 +12,12 @@ app.use(middleware(compiler, {
 }));
 
 // Gets the client config from the webpack config file
-app.use(hotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client')));
+app.use(hotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client'), {
+  hot: true,
+  publicPath: '/build/'
+}));
 
 app.use(serverMiddleware(compiler));
+
 
 app.listen(3000, () => console.log('Listening on port 3000!'))

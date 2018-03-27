@@ -1,5 +1,7 @@
 import React from 'react';
 import s from './App.scss';
+import { hot } from 'react-hot-loader'
+import Test from '../Test';
 
 if (typeof(window) == 'undefined') {
 	global.window = new Object();
@@ -9,13 +11,8 @@ const initialData = window ? window.__INITIAL_STATE__ : {};
 
 const App = () => (
   <div className={s.root}>
-    Fart?
+    <Test />
   </div>
 );
 
-export default App;
-// module.hot.accept();
-
-if (module.hot) {
-  module.hot.accept();
-}
+export default hot(module)(App);

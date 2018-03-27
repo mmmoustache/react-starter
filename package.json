@@ -6,8 +6,8 @@
   "author": "Jack Coventry",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack --config ./tools/development.config.js --mode development",
-    "build": "webpack-dev-server --config ./tools/webpack.config.js --mode production",
+    "start": "node ./tools/development",
+    "prod": "node ./tools/production",
     "lint-js": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
     "lint-css": "stylelint \"src/**/*.{css,less,scss,sss}\"",
     "lint": "yarn lint-js && yarn lint-css"
@@ -42,9 +42,11 @@
     "webpack-dev-server": "^3.1.1",
     "webpack-hot-middleware": "^2.21.2",
     "webpack-hot-server-middleware": "^0.5.0",
-    "webpack-node-externals": "^1.6.0"
+    "webpack-node-externals": "^1.6.0",
+    "write-file-webpack-plugin": "^4.2.0"
   },
   "devDependencies": {
+    "extracted-loader": "^1.0.7",
     "resolve-url-loader": "^2.3.0",
     "webpack-cli": "^2.0.13"
   }

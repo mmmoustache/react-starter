@@ -1,0 +1,9 @@
+.root {
+  background: red;
+}
+
+:global {
+  body {
+    background: pink;
+  }
+}

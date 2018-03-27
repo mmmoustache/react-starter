@@ -11,7 +11,9 @@ export default function serverRenderer() {
     };
     
 		const markup = ReactDOMServer.renderToString(
-      <App />
+			<div>
+				<App />
+			</div>
 		);
 
 		res.status(200).send(Html({markup: markup}));
