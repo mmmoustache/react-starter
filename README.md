@@ -14,10 +14,14 @@ FEATURES
 ☑️ Server rendered css
   - Ended up using extracttextplugin as webpack 4 + mini-css-extract-plugin not ready yet
 
-🗳️ Redux
+☑️ Redux
+☑️ Jest testing
+
 🗳️ Progressive Web App stuff
-🗳️ Jest testing
 🗳️ Docker support
-🗳️ Developer workflow stuff
+🗳️ Developer workflow stuff (dev, prod etc..)
 🗳️ Optimization
 🗳️ Routing
+🗳️ Open graph stuff?
+🗳️ Grid System
+

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Test Should render successfully 1`] = `
+<div
+  className={undefined}
+>
+  <p>
+    No active term
+  </p>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Click
+  </button>
+</div>
+`;

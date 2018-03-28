@@ -1,7 +1,8 @@
 module.exports = {
   "parser": "babel-eslint",
   "plugins": [
-    "react"
+    "react",
+    "jest"
   ],
   "parserOptions": {
     "ecmaVersion": 6,
@@ -14,7 +15,8 @@ module.exports = {
     "es6": true,
     "browser": true,
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "jest/globals": true,
   },   
   "extends": [
     "eslint:recommended", 
