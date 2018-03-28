@@ -1,13 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const extensions = ['*', '.js', '.jsx', '.css', '.scss'];
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
-
-const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-  inject: 'body'
-});
+const extensions = ['*', '.js', '.jsx', '.css', '.scss'];
 
 module.exports = [
   {
