@@ -8,16 +8,15 @@ const express = require('express');
 const app = express();
 
 app.use(middleware(compiler, {
-  publicPath: '/build/',
+  publicPath: '/',
 }));
 
 // Gets the client config from the webpack config file
 app.use(hotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client'), {
   hot: true,
-  publicPath: '/build/'
+  publicPath: '/'
 }));
 
 app.use(serverMiddleware(compiler));
 
-
-app.listen(3000, () => console.info('Listening on port 3000!'))
+app.listen(3002, () => console.info('Listening on port 3002!'))

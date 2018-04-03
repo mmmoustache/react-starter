@@ -4,18 +4,17 @@ import App from './components/App';
 import allReducers from "./reducers";
 import { Provider } from 'react-redux';
 import { createStore } from "redux";
+import { BrowserRouter } from 'react-router-dom';
 
 const store = createStore(
   allReducers
 );
 
-const render = (Component) => {
-  ReactDOM.hydrate(
+ReactDOM.hydrate(
+  <BrowserRouter>
     <Provider store={store}>
-      <Component />
-    </Provider>,
-    document.getElementById('root')
-  );
-};
-
-render(App);
+      <App />
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById('root')
+);

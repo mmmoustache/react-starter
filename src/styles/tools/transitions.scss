@@ -1,0 +1,22 @@
+/* ==========================================================================
+
+  @function t-transition
+  Returns a transition
+
+  @param {String} $time - A reference to a time value in the s-transition-times map
+  @param {String} $timing - A reference to a timing option in the s-transition-timings map
+  @param {String} $properties - All properties which the transition should apply to
+
+  @example
+  @include t-transition(short, default, height);
+
+========================================================================== */
+
+@mixin t-transition($time, $timing, $properties...) {
+  -webkit-transition: map-get($s-transition-times, $time), map-get($s-transition-timings, $timing);
+  -moz-transition: map-get($s-transition-times, $time), map-get($s-transition-timings, $timing);
+  -o-transition: map-get($s-transition-times, $time), map-get($s-transition-timings, $timing);
+  -ms-transition: map-get($s-transition-times, $time), map-get($s-transition-timings, $timing);
+  transition: map-get($s-transition-times, $time), map-get($s-transition-timings, $timing);
+  transition-property: $properties;
+}

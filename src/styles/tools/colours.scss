@@ -1,0 +1,27 @@
+/* ==========================================================================
+
+  @function t-colour
+  Returns a color value from pallette of colours
+
+  @param {String} $key - A string value representing a value in the $s-colour sass map
+
+  @example
+  color: t-colour(buttonbackground);
+
+========================================================================== */
+
+@function t-colour($component, $key) {
+  @if map-has-key($s-colour, $component) {
+    @if map-has-key(map-get($s-colour, $component), $key) {
+      @return map-get(map-get($s-colour, $component), $key);
+    }
+
+    @else {
+      @error 'tools-colours > t-colour : key `#{$key}` not found in `#{$component}`.';
+    }
+  }
+
+  @else {
+    @error 'tools-colours > t-colour : component `#{$component}` not found in $s-colour.';
+  }
+}

@@ -1,0 +1,142 @@
+/* ==========================================================================
+
+    @mixin t-reset-list
+    Removes list style, margins and padding
+
+    @example
+    @include t-reset-list;
+
+========================================================================== */
+
+@mixin t-reset-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* ==========================================================================
+
+    @mixin t-clearfix
+    Argumentless mixin which appends pseudo classes passed onto a parent
+    container of floated elements to clear the siblings.
+
+    @example
+    @include t-clearfix;
+
+========================================================================== */
+
+@mixin t-clearfix {
+  *zoom: 1;
+
+  &::before,
+  &::after {
+    display: table;
+    content: '';
+    line-height: 0;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+/* ==========================================================================
+
+    @mixin t-gradient
+    Applys a simple background gradient to any given element
+
+    @param {String} $start - A colour value for the first gradient colour
+    @param {String} $end - A colour value for the second gradient colour
+    @param {String} $orientation - Determines which direction the gradient faces will create a radial gradient by default
+
+    @examples
+    @include t-gradient(red, blue, vertical);
+    @include t-gradient(#FF0000, #FFFF00, horizontal);
+    @include t-gradient(#666666, #FFFFFF);
+
+========================================================================== */
+
+@mixin t-gradient ($start, $end, $orientation) {
+  background: $start;
+
+  @if $orientation == 'vertical' {
+    background: linear-gradient(to bottom, $start, $end);
+  }
+  @else if $orientation == 'horizontal' {
+    background: linear-gradient(to right, $start, $end);
+  }
+  @else {
+    background: radial-gradient(ellipse at center, $start, $end);
+  }
+}
+
+/* ==========================================================================
+
+    @mixin t-size
+    Applys specific sizing to any given element. Will convert to rem's if auto isn't used
+
+    @param {String} $width - A value in pixels that will be applied to the width
+    @param {String} $height - A value in pixels that will be applied to the height, if not supplied it will use the supplied width
+
+    @examples
+
+    @include t-size(50px);
+
+    @output
+    width: 50px;
+    height: 50px;
+
+    @include t-size(100px, 50px);
+
+    @output
+    width: 100px;
+    height: 50px;
+
+    @include t-size(auto, 30px);
+
+    @output
+    width: auto;
+    height: 30px;
+
+========================================================================== */
+
+@mixin t-size ($width, $height) {
+  @if $width == 'auto' {
+    width: $width;
+  }
+
+  @else {
+    width: t-rem($width);
+  }
+
+  @if $height {
+    @if $height == 'auto' {
+      height: $height;
+    }
+
+    @else {
+      height: t-rem($height);
+    }
+  }
+
+  @else {
+    height: $width;
+  }
+}
+
+/* ========================================================================
+
+    @mixin t-reset-list
+    Removes default margin, padding and bullet points from a list.
+
+    @examples
+
+    @include t-reset-list;
+
+========================================================================== */
+
+@mixin t-reset-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

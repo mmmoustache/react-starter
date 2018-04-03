@@ -14,7 +14,7 @@ module.exports = [
     target: 'web',
     output: {
       path: path.join(__dirname, '../build'),
-      publicPath: '/build/',
+      publicPath: '/',
       filename: 'client.js'
     },
 		devtool: 'source-map',
@@ -66,6 +66,9 @@ module.exports = [
         filename: 'client.css',
         allChunks: true
       }),
+      new webpack.DefinePlugin({
+        __isBrowser__: "true"
+      })
     ]
   },
   {
@@ -74,7 +77,7 @@ module.exports = [
     entry: './src/server.js',
     output: {
       path: path.join(__dirname, '../build'),
-      publicPath: '/build/',
+      publicPath: '/',
       filename: 'server.js',
       libraryTarget: 'commonjs2'
     },
@@ -125,7 +128,19 @@ module.exports = [
         filename: 'server.css',
         allChunks: true,
       }),
+      new webpack.optimize.UglifyJsPlugin({
+        sourceMap: true,
+        compress: {
+          warnings: false
+        }
+      }),
+      new webpack.LoaderOptionsPlugin({
+        minimize: true
+      }),
       new WriteFilePlugin(),
+      new webpack.DefinePlugin({
+        __isBrowser__: "false"
+      })
     ]
   }
 ];

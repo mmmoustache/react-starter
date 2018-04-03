@@ -1,0 +1,39 @@
+/* ==========================================================================
+
+    @mixin t-breakpoint-min
+    Wraps content in a media query
+
+    @param {String} $bp - A string value representing a value in the $s-breakpoints sass map
+
+    @example
+    @include t-breakpoint-min(medium) {
+        background-color: red;
+    }
+
+========================================================================== */
+
+@mixin t-breakpoint-min($bp) {
+  @media only screen and (min-width: map-get($s-breakpoints, $bp)) {
+    @content;
+  }
+}
+
+/* ==========================================================================
+
+    @mixin t-breakpoint-max
+    Wraps content in a media query
+
+    @param {String} $bp - A string value representing a value in the $s-breakpoints sass map
+
+    @example
+    @include t-breakpoint-max(medium) {
+        background-color: blue;
+    }
+
+========================================================================== */
+
+@mixin t-breakpoint-max($bp) {
+  @media only screen and (max-width: map-get($s-breakpoints, $bp)) {
+    @content;
+  }
+}

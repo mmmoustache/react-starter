@@ -5,6 +5,7 @@ import Html from './components/Html';
 import { Provider } from 'react-redux';
 import allReducers from "./reducers";
 import { createStore } from "redux";
+import { StaticRouter, matchPath } from "react-router-dom";
 
 export default function serverRenderer() {
 	return function (req, res) {
@@ -13,13 +14,17 @@ export default function serverRenderer() {
 			allReducers
 		);
 
+    const context = {};
+
 		const markup = ReactDOMServer.renderToString(
-			<Provider store={store}>
-				<App />
-			</Provider>
+			<StaticRouter location={req.url} context={context}>
+				<Provider store={store}>
+					<App />
+				</Provider>
+			</StaticRouter>
 		);
 
 		res.status(200).send(Html({markup: markup}));
-
+		
 	}
 }
