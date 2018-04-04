@@ -54,6 +54,10 @@ module.exports = [
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: ['babel-loader']
+        },
+        { 
+          test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+          loader: 'url-loader?limit=100000'
         }
       ]
     },
@@ -84,7 +88,7 @@ module.exports = [
     module: {
       rules: [
         {
-          test: /\.scss$/,
+          test: /(\.css|\.scss)$/,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: [
@@ -118,6 +122,10 @@ module.exports = [
           exclude: /node_modules/,
           use: ['babel-loader']
         },
+        { 
+          test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+          loader: 'url-loader?limit=100000'
+        }
       ]
     },
     resolve: {
@@ -129,13 +137,10 @@ module.exports = [
         allChunks: true,
       }),
       new webpack.optimize.UglifyJsPlugin({
-        sourceMap: true,
+        sourceMap: false,
         compress: {
           warnings: false
         }
-      }),
-      new webpack.LoaderOptionsPlugin({
-        minimize: true
       }),
       new WriteFilePlugin(),
       new webpack.DefinePlugin({

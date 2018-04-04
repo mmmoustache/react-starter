@@ -30,7 +30,6 @@ const routes =  [
     exact: false,
     component: Test,
   }
-]
+];
 
 export default routes
-

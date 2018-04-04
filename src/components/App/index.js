@@ -19,12 +19,10 @@ const App = () => (
       <div className="column small-12">  
         <Test />
         <Switch>
-          {routes.map(({ path, exact, component: Component, ...rest }) => (
-            <Route key={path} path={path} exact={exact} render={(props) => (
-              <Component {...props} {...rest} />
-            )} />
-          ))}
-          <Route render={(props) => <div>404</div> } />
+          {
+            routes.map(({ path, exact, component: Component, ...rest }) => <Route key={path} path={path} exact={exact} render={props => <Component {...props} {...rest} />} />)
+          }
+          <Route render={() => <div>404</div> } />
         </Switch>
       </div>
     </div>
