@@ -18,11 +18,9 @@ FEATURES
 ☑️ Docker support
 ☑️ Developer workflow stuff (yarn start, prod etc..)
 ☑️ Custom Font Loader
+☑️ Minify html component, also inline styles and scripts in production
 
 🗳️ Progressive Web App stuff
-  - service worker
   - offline page
-  - meta stuff
   - Optimization
-🗳️ Minify html component, also inline styles and scripts in production
-
+🗳️ some useful logging

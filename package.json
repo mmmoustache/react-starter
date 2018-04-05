@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./tools/development",
-    "build": "webpack -p --config ./tools/webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack -p --config ./tools/webpack.config.js",
     "prod": "node ./tools/production",
     "lint-js": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
     "lint-css": "stylelint \"src/**/*.{css,less,scss,sss}\"",
@@ -24,6 +24,8 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-runtime": "^6.26.0",
     "compression": "^1.7.2",
+    "copy-webpack-plugin": "^4.5.1",
+    "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",

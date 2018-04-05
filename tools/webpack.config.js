@@ -3,14 +3,42 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const extensions = ['*', '.js', '.jsx', '.css', '.scss'];
+const isDev = process.env.NODE_ENV !== 'production';
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const clientEntry = [
+  './src/client.js'
+];
+
+const clientPlugins = [
+  new ExtractTextPlugin({
+    filename: 'client.css',
+    allChunks: true
+  }),
+  new webpack.DefinePlugin({
+    'process.env.__isBrowser__': true,
+    'process.env': {
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
+    }
+  }),
+  new CopyWebpackPlugin([
+    { from: 'public/', to: '../build/' }
+  ])
+];
+
+if (isDev) {
+  clientEntry.push(
+    'webpack-hot-middleware/client'
+  );
+  clientPlugins.push(
+    new webpack.HotModuleReplacementPlugin()
+  );
+}
 
 module.exports = [
   {
     name: 'client',
-    entry: [
-      'webpack-hot-middleware/client',
-      './src/client.js'
-    ],
+    entry: clientEntry,
     target: 'web',
     output: {
       path: path.join(__dirname, '../build'),
@@ -64,16 +92,7 @@ module.exports = [
     resolve: {
       extensions: extensions
     },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      new ExtractTextPlugin({
-        filename: 'client.css',
-        allChunks: true
-      }),
-      new webpack.DefinePlugin({
-        __isBrowser__: "true"
-      })
-    ]
+    plugins: clientPlugins
   },
   {
     name: 'server',
@@ -144,7 +163,10 @@ module.exports = [
       }),
       new WriteFilePlugin(),
       new webpack.DefinePlugin({
-        __isBrowser__: "false"
+        'process.env.__isBrowser__': false,
+        'process.env': {
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
+        }
       })
     ]
   }

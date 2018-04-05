@@ -39,6 +39,6 @@ export default function serverRenderer() {
 			</StaticRouter>
 		);
 
-		res.status(200).send(Html({markup: markup, data: {}, styles: styles, script: script}));
+		res.status(200).send(Html({markup: markup, data: {}, styles: styles, script: script, env: process.env.NODE_ENV}));
 	}
 }

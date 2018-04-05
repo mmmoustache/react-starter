@@ -6,7 +6,7 @@ const Test = ({ updateTerm, activeTerm }) => (
   <div className={s.root}>
     <p>
       {
-        activeTerm ? `Active term?: ${activeTerm}` : 'No active term???'
+        activeTerm ? `Active term: ${activeTerm}` : 'No active term'
       }
     </p>
     <button type="button" onClick={() => updateTerm('Test')}>Click</button>
