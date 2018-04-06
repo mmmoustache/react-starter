@@ -19,7 +19,7 @@ if (typeof(window) == 'undefined') {
 
 const App = () => (
   <div className={s.root}>
-    <div className="row">
+    <div className="row test">
       <div className="column small-12">  
         <Test />
         <ul>
