@@ -12,8 +12,8 @@ FEATURES
 ☑️ Isomorphic rendering
 ☑️ Server rendered css
   - Ended up using extracttextplugin as webpack 4 + mini-css-extract-plugin not ready yet
-☑️ Jest testing
-☑️ Grid System
+☑️ Jest testing + code coverage
+☑️ Grid System (Foundation)
 ☑️ ️Dynamic Routing
 ☑️ Docker support
 ☑️ Developer workflow stuff (yarn start, prod etc..)
@@ -21,6 +21,15 @@ FEATURES
 ☑️ Minify html component, also inline styles and scripts in production
 
 🗳️ Progressive Web App stuff
-  - offline page
-  - Optimization
+  - offline page - finish, maybe generate html file
 🗳️ some useful logging
+🗳️ any cool plugins we can add
+  - a documentation type tool
+  - https://github.com/webpro/release-it
+  ️- a11y tools
+  - image optimization
+  - webpack tools
+
+🗳️ Optimization + Tidying
+🗳️ Automated browser testing
+🗳️ commit linting webhook

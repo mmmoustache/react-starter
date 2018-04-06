@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Jack Coventry",
   "license": "MIT",
+  "lint-staged": {
+    "*.{js,jsx}": ["eslint --fix", "git add"]
+  },
   "scripts": {
     "start": "node ./tools/development",
     "build": "cross-env NODE_ENV=production webpack -p --config ./tools/webpack.config.js",
@@ -14,7 +17,8 @@
     "lint": "yarn lint-js && yarn lint-css",
     "test": "jest",
     "coverage": "jest --coverage && opn coverage/lcov-report/index.html",
-    "styleguide": "styleguidist build && opn styleguide/index.html"
+    "styleguide": "styleguidist build && opn styleguide/index.html",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
@@ -62,7 +66,9 @@
   "devDependencies": {
     "eslint-plugin-jest": "^21.15.0",
     "extracted-loader": "^1.0.7",
+    "husky": "^0.14.3",
     "jest": "^22.4.3",
+    "lint-staged": "^7.0.4",
     "opn-cli": "^3.1.0",
     "react-styleguidist": "^7.0.4",
     "react-test-renderer": "^16.2.0",
