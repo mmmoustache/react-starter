@@ -1,120 +1,119 @@
 /* ==========================================================================
 
-    @function t-rem
-    Returns a single or series of values represented as rem unit(s).
+  @function t-rem
+  Returns a single or series of values represented as rem unit(s).
 
-    @param {Number} $values - A single, or space separated list of Numbers specified using any valid unit type.
-    @return {Number} - The original value(s) converted into rem unit(s).
+  @param {Number} $values - A single, or space separated list of Numbers specified using any valid unit type.
+  @return {Number} - The original value(s) converted into rem unit(s).
 
-    @example
-    t-rem(2em 20px 2rem 20px);
+  @example
+  t-rem(2em 20px 2rem 20px);
 
-   ========================================================================== */
+========================================================================== */
 
-   @function t-rem($values) {
-    @if type-of($values) == 'list' {
-      $rems: ();
-  
-      @each $value in $values {
-        $rems: append($rems, t-rem($value));
-      }
-  
-      @return $rems;
+@function t-rem($values) {
+  @if type-of($values) == 'list' {
+    $rems: ();
+
+    @each $value in $values {
+      $rems: append($rems, t-rem($value));
     }
-  
-    @if type-of($values) == 'number' {
-      @if $values == 0 {
-        @return $values;
-      }
-      @else if unit($values) == px {
-        @return ($values / $s-base-font-size) * 1rem;
-      }
-    }
-  
-    @return $values;
+
+    @return $rems;
   }
-  
-  /* ==========================================================================
-  
-      @mixin t-centerer
-      Applys visual centering to a css class
-  
-      @param {String} $value - Takes either "horizontal", "vertical" or "both".
-      @param {String} $position - Determines which type of positioning to use
-  
-      @examples
-      @include t-centerer(both);
-      @include t-centerer(vertical, relative);
-      @include t-centerer(horizontal, fixed);
-  
-    ========================================================================== */
-  
-  @mixin t-centerer($value: both, $position: absolute) {
-    position: $position;
-  
-    @if ($value == 'both') {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+
+  @if type-of($values) == 'number' {
+    @if $values == 0 {
+      @return $values;
     }
-    @else if ($value == 'horizontal') {
-      left: 50%;
-      transform: translate(-50%, 0);
-    }
-    @else if ($value == 'vertical') {
-      top: 50%;
-      transform: translate(0, -50%);
+    @else if unit($values) == px {
+      @return ($values / $s-base-font-size) * 1rem;
     }
   }
-  
-  /* ==========================================================================
-  
-      @function t-spacing
-      Returns a uniformed set of values in use for spacing
-  
-      @param {String} $size - A string to return a corresponding value in the $s-spacing map
-      @param {Number} $multiplier - Multiplies the size
-  
-      @examples
-      padding-top: t-spacing(large);
-      margin-left: t-spacing(small, 3);
-  
-    ========================================================================== */
-  
-  @function t-spacing($size, $multiplier: 1, $asPixels: false) {
-    @if map-has-key($s-spacing, $size) {
-      $value: map-get($s-spacing, $size) * $multiplier;
-  
-      @if $asPixels == true {
-        @return $value;
-      }
-      @else {
-        @return t-rem($value);
-      }
+
+  @return $values;
+}
+
+/* ==========================================================================
+
+  @mixin t-centerer
+  Applys visual centering to a css class
+
+  @param {String} $value - Takes either "horizontal", "vertical" or "both".
+  @param {String} $position - Determines which type of positioning to use
+
+  @examples
+  @include t-centerer(both);
+  @include t-centerer(vertical, relative);
+  @include t-centerer(horizontal, fixed);
+
+========================================================================== */
+
+@mixin t-centerer($value: both, $position: absolute) {
+  position: $position;
+
+  @if ($value == 'both') {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @else if ($value == 'horizontal') {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  @else if ($value == 'vertical') {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+/* ==========================================================================
+
+  @function t-spacing
+  Returns a uniformed set of values in use for spacing
+
+  @param {String} $size - A string to return a corresponding value in the $s-spacing map
+  @param {Number} $multiplier - Multiplies the size
+
+  @examples
+  padding-top: t-spacing(large);
+  margin-left: t-spacing(small, 3);
+
+========================================================================== */
+
+@function t-spacing($size, $multiplier: 1, $asPixels: false) {
+  @if map-has-key($s-spacing, $size) {
+    $value: map-get($s-spacing, $size) * $multiplier;
+
+    @if $asPixels == true {
+      @return $value;
     }
     @else {
-      @error 'tools-layout > t-spacing : key `#{$key}` not found in $s-spacing.';
+      @return t-rem($value);
     }
   }
-  
-  /* ==========================================================================
-  
-      @mixin t-layer
-      Returns a z-index value
-  
-      @param {String} $key - A string to return a corresponding value in the $s-layers map
-  
-      @examples
-      @include t-layer(base);
-  
-    ========================================================================== */
-  
-  @mixin t-layer($key) {
-    @if map-has-key($s-layers, $key) {
-      z-index: map-get($s-layers, $key);
-    }
-    @else {
-      @error 'tools-layout > t-layers : key `#{$key}` not found in $s-layers.';
-    }
+  @else {
+    @error 'tools-layout > t-spacing : key `#{$key}` not found in $s-spacing.';
   }
-  
+}
+
+/* ==========================================================================
+
+  @mixin t-layer
+  Returns a z-index value
+
+  @param {String} $key - A string to return a corresponding value in the $s-layers map
+
+  @examples
+  @include t-layer(base);
+
+========================================================================== */
+
+@mixin t-layer($key) {
+  @if map-has-key($s-layers, $key) {
+    z-index: map-get($s-layers, $key);
+  }
+  @else {
+    @error 'tools-layout > t-layers : key `#{$key}` not found in $s-layers.';
+  }
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';// eslint-disable-line
 
 function MarkUp(markup, data, styles, script, env) {
 	return `<!doctype html>

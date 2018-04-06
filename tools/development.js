@@ -19,4 +19,4 @@ app.use(hotMiddleware(compiler.compilers.find(compiler => compiler.name === 'cli
 
 app.use(serverMiddleware(compiler));
 
-app.listen(3002, () => console.info('Listening on port 3002!'))
+app.listen(3002, () => console.info(`App running in development at http://localhost:3002`));

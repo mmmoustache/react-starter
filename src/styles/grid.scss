@@ -1,12 +1,15 @@
+/* stylelint-disable */
+/* Stylesheet disabled in stylelinter due to specifity of grid system */
+
 @import 'settings.scss';
 @import 'tools.scss';
 
 :global {
   /* ========================================================================== */
 
-    /* Foundation Grid System */
+  /* Foundation Grid System */
 
-    /* Foundation for Sites by ZURB
+  /* Foundation for Sites by ZURB
       * Version 6.4.4-rc1
       * foundation.zurb.com
       * Licensed under MIT Open Source
@@ -1907,3 +1910,4 @@
     }
   }
 }
+/* stylelint-enable */

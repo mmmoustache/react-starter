@@ -4,11 +4,11 @@
 @mixin title($noMargin: false) {
   font-size: $s-base-font-size*4;
   line-height: $s-base-font-size*4;
- 
+
   @if $noMargin {
     margin: 0;
-  } @else {
+  }
+  @else {
     margin: 0 0 t-spacing(vertical);
   }
 }
-

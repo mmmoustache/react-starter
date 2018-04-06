@@ -12,4 +12,4 @@ app.use('/', express.static('build'));
 
 app.use(ServerRenderer());
 
-app.listen(3002, () => console.log(`App running in production mode on on port 3002!`));
+app.listen(3002, () => console.info(`App running in production at http://localhost:3002`));
