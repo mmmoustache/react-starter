@@ -6,7 +6,8 @@
   "author": "Jack Coventry",
   "license": "MIT",
   "lint-staged": {
-    "*.{js,jsx}": ["eslint --fix", "git add"]
+    "*.{js,jsx}": ["eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .", "git add"],
+    "*.{css,scss,sss,sass}": ["stylelint \"src/**/*.{css,less,scss,sss}\"", "git add"]
   },
   "scripts": {
     "start": "node ./tools/development",
