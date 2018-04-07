@@ -1,15 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './Test.scss';
 
 const Test = ({ updateTerm, activeTerm }) => (
-  <div className={s.root}>
-    <p>
-      {
-        activeTerm ? `Active term: ${activeTerm}` : 'No active term'
-      }
-    </p>
-    <button type="button" onClick={() => updateTerm('Test')}>Click</button>
+  <div>
+    <p>{ activeTerm ? activeTerm : `Hello there!` }</p>
+    <button type="button" onClick={() => updateTerm('Tee-hee, that tickles!')}>Click Me!</button>
   </div>
 );
 

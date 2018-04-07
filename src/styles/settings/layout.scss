@@ -4,3 +4,10 @@ $s-base-font-size: $s-base-unit*2;
 $s-spacing: (
   vertical: $s-base-unit*2,
 );
+
+$s-layers: (
+  sub: -9999,
+  top: 9999,
+  first: 1,
+  second: 2,
+);

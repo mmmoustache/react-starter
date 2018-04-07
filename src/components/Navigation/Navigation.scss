@@ -1,0 +1,155 @@
+@import '../../styles/settings.scss';
+@import '../../styles/tools.scss';
+
+.root {
+  background: t-colour(Navigation, Background);
+  border-bottom: 1px solid t-colour(General, Border);
+  height: t-rem(60px);
+  overflow: hidden;
+  position: relative;
+}
+
+.link {
+  color: t-colour(General, Primary);
+  display: block;
+  padding: t-rem(18px);
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: t-colour(General, Primary);
+    text-decoration: underline;
+  }
+}
+
+.list {
+  @include t-layer(first);
+
+  background: t-colour(Navigation, Mobile);
+  float: left;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+
+  @include t-breakpoint-min (medium) {
+    background: none;
+    position: relative;
+    width: auto;
+  }
+}
+
+.listHidden {
+  composes: list;
+  display: none;
+
+  @include t-breakpoint-min (medium) {
+    display: block;
+  }
+}
+
+.listInner {
+  @include t-centerer;
+  @include t-reset-list;
+
+  overflow: hidden;
+  width: 100%;
+
+  @include t-breakpoint-min (medium) {
+    left: 0;
+    position: relative;
+    top: 0;
+    transform: none;
+  }
+}
+
+.listItem {
+  text-align: center;
+  width: 100%;
+
+  @include t-breakpoint-min (medium) {
+    float: left;
+    width: auto;
+  }
+}
+
+.logo {
+  @include t-layer(second);
+
+  color: t-colour(General, Primary);
+  display: block;
+  float: left;
+  margin-right: t-rem(20px);
+  position: relative;
+}
+
+.logoImage {
+  display: block;
+  float: left;
+  height: t-rem(40px);
+  width: t-rem(40px);
+  margin: t-rem(10px 0 10px 10px);
+
+  @include t-breakpoint-min (medium) {
+    margin: t-rem(10px 0);
+  }
+}
+
+.logoText {
+  display: block;
+  float: left;
+  font-family: 'open_sansbold', Arial, Helvetica, sans-serif;
+  padding: t-rem(18px 18px 18px 10px);
+}
+
+.toggle {
+  @include t-layer(second);
+
+  cursor: pointer;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  text-indent: -9999px;
+  top: 0;
+  width: t-rem(54px);
+
+  @include t-breakpoint-min (medium) {
+    display: none;
+  }
+}
+
+.toggleInner {
+  @include t-centerer;
+
+  background: t-colour(General, Primary);
+  display: block;
+  height: t-rem(1px);
+  transition: 0.2s background ease-in-out;
+  width: t-rem(20px);
+
+  &::before {
+    @include t-toggleLine;
+  }
+
+  &::after {
+    @include t-toggleLine;
+
+    top: t-rem(6px);
+  }
+}
+
+.toggleInnerActive {
+  composes: toggleInner;
+  background: transparent;
+
+  &::before {
+    top: auto;
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    top: 0;
+    transform: rotate(45deg);
+  }
+}

@@ -13,7 +13,7 @@ if ('serviceWorker' in navigator) {
     console.info('CLIENT: service worker registration in progress.');
   }
 
-  navigator.serviceWorker.register('service-worker.js').then(() => {
+  navigator.serviceWorker.register('/service-worker.js').then(() => {
     if (isDev) {
       console.info('CLIENT: service worker registration complete.');
     }

@@ -28,6 +28,7 @@
         */
 
   html {
+    background: #666;
     font-family: sans-serif;
 
     /* 1 */
@@ -66,6 +67,7 @@
         * `article` contexts in Chrome, Firefox, and Safari. */
 
   h1 {
+    font-family: 'open_sansbold';
     font-size: 2em;
     margin: 0.67em 0;
   }
@@ -181,6 +183,7 @@
 
   b,
   strong {
+    font-family: 'open_sansbold';
     font-weight: inherit;
   }
 
@@ -580,7 +583,6 @@
   body {
     margin: 0;
     padding: 0;
-    background: #fff;
     font-family: 'open_sansregular';
     font-weight: normal;
     line-height: 1.5;

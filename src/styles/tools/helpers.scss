@@ -140,3 +140,27 @@
   padding: 0;
   list-style-type: none;
 }
+
+/* ========================================================================
+
+    @mixin t-toggleLine
+    Applies styling to the toggle navigation
+
+    @examples
+
+    @include t-toggleLine;
+
+========================================================================== */
+
+@mixin t-toggleLine {
+  background: t-colour(General, Primary);
+  content: '';
+  display: block;
+  height: t-rem(1px);
+  left: 0;
+  position: absolute;
+  top: t-rem(-6px);
+  transform: rotate(0);
+  width: t-rem(20px);
+  transition: 0.2s transform, top ease-in-out;
+}

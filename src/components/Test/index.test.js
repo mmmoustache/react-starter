@@ -1,15 +1,23 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import Test from '../Test';
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 describe('Component: Test', () => {
+  let component;
 
   it('Should render successfully', () => {
-    const component = renderer.create(
+    component = shallow(
       <Test updateTerm={() => {}} />
     );
+    expect(component).toMatchSnapshot();
+  });
 
-    expect(component.toJSON()).toMatchSnapshot();
+  it('updateTerm should be called', () => {
+    component.find('button').simulate('click');
+    expect(component).toMatchSnapshot();
   });
 
 });

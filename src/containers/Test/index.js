@@ -7,8 +7,8 @@ import Test from '../../components/Test';
 
 class TestComponent extends React.Component {
   static propTypes = {
-    updateTerm: PropTypes.func.isRequired,
     activeTerm: PropTypes.string,
+    updateTerm: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -43,4 +43,4 @@ function matchDispatchToProps(dispatch) {
 	}, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(TestComponent);
+export default connect(mapStateToProps, matchDispatchToProps, null, { pure: false })(TestComponent);

@@ -1,6 +1,10 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { hot } from 'react-hot-loader'
+import PropTypes from 'prop-types';
+
 import s from './App.scss';
-import { Route, Link, Switch } from 'react-router-dom';
 
 /*eslint-disable */
 /* Importing grid system, sass variables and mixins  */
@@ -9,33 +13,44 @@ import tools from '../../styles/tools.scss';
 import grid from '../../styles/grid.scss';
 /*eslint-enable */
 
-import { hot } from 'react-hot-loader'
-import Test from '../../containers/Test';
 import routes from '../../routes';
+import Navigation from '../../containers/Navigation';
+import Footer from '../../components/Footer';
+import PageNotFound from '../../templates/PageNotFound';
 
 if (typeof(window) == 'undefined') {
 	global.window = new Object();
 }
 
-const App = () => (
-  <div className={s.root}>
-    <div className="row test">
-      <div className="column small-12">  
-        <Test />
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/test">Test</Link></li>
-          <li><Link to="/sdfgsdfgdsfg">404</Link></li>
-        </ul>
-        <Switch>
-          {
-            routes.map(({ path, exact, component: Component, ...rest }) => <Route key={path} path={path} exact={exact} render={props => <Component {...props} {...rest} />} />)
-          }
-          <Route render={() => <div>404</div> } />
-        </Switch>
-      </div>
-    </div>
-  </div>
-);
+class App extends React.Component {
 
-export default (process.env.NODE_ENV === 'development' ? hot(module)(App) : App);
+  static propTypes = {
+    navigationIsHidden: PropTypes.bool.isRequired,
+  };
+
+  render() {
+    return (
+      <div className={this.props.navigationIsHidden ? s.root : s.rootNavOpen}>
+        <a href="#main" className={s.skipToMain}>skip to main content</a>
+        <Navigation />
+        <main id="main" name="main" className={s.contentWrapper}>
+          <Switch>
+            {
+              routes.map(({ path, exact, component: Component, ...rest }) => <Route key={path} path={path} exact={exact} render={props => <Component {...props} {...rest} />} />)
+            }
+            <Route render={() => <PageNotFound /> } />
+          </Switch>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+	return {
+		navigationIsHidden: !state.navigationIsHidden,
+	};
+}
+
+export default (process.env.NODE_ENV === 'development' ? hot(module)(connect(mapStateToProps, null, null, { pure: false })(App)) : connect(mapStateToProps)(App));

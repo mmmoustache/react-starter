@@ -17,13 +17,13 @@ function MarkUp(markup, data, styles, script, env) {
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="theme-color" content="#ffffff">
 	${
-		env === 'development' ?	`<link rel="stylesheet" href="client.css" />` : `<style>${styles}</style>`
+		env === 'development' ?	`<link rel="stylesheet" href="/client.css" />` : `<style>${styles}</style>`
 	}
 </head>
 <body>
 	<div id="root">${markup}</div>
 	${
-		env === 'development' ?	`<script src="client.js" async></script>` : `<script>${script}</script>`
+		env === 'development' ?	`<script src="/client.js" async></script>` : `<script>${script}</script>`
 	}
 	<script>window.__INITIAL_STATE__ = ${JSON.stringify(data)};</script>
 </body>

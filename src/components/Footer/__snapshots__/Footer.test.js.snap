@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ContentWrapper Should render successfully 1`] = `
+<footer
+  className={undefined}
+>
+  <div
+    className="row"
+  >
+    <div
+      className="column small-12 text-center"
+    >
+      <p>
+        Made with love ❤️
+      </p>
+    </div>
+  </div>
+</footer>
+`;

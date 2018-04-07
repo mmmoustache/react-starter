@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ContentWrapper Should render successfully 1`] = `
+<div
+  className={undefined}
+>
+  <p>
+    Test
+  </p>
+  <p>
+    Test
+  </p>
+</div>
+`;

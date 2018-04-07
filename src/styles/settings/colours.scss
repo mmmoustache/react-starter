@@ -13,12 +13,25 @@
 
 $s-colours: (
   black: #000,
+  white: #fff,
   grey: #666,
+  grey--light: #ddd,
+  blue--light: #259fda,
 );
 
 $s-colour: (
+  Footer: (
+    Copy: map-get($s-colours, white),
+  ),
   General: (
     Background: map-get($s-colours, black),
+    Border: map-get($s-colours, grey--light),
     Copy: map-get($s-colours, grey),
+    ContentWrapper: map-get($s-colours, white),
+    Primary: map-get($s-colours, blue--light),
+  ),
+  Navigation: (
+    Background: map-get($s-colours, white),
+    Mobile: map-get($s-colours, grey--light),
   ),
 );

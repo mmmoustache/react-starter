@@ -1,33 +1,31 @@
-import React from 'react';
-// import Home from './components/Test';
-// import Test from './components/Test';
-
-function Home () {
-  return (
-    <div>
-      Home
-    </div>
-  )
-}
-
-function Test () {
-  return (
-    <div>
-      TEST?!
-    </div>
-  )
-}
+import React from 'react';// eslint-disable-line
+import Home from './templates/Home';
+import Page from './templates/Page';
 
 const routes =  [
   {
     path: '/',
     exact: true,
     component: Home,
+    title: 'Home',
+    showInNav: false,
+    content: "This is my home page",
   },
   {
-    path: '/test/',
+    path: '/about/',
     exact: false,
-    component: Test,
+    component: Page,
+    title: 'About',
+    showInNav: true,
+    content: "This is my about page",
+  },
+  {
+    path: '/contact/',
+    exact: false,
+    component: Page,
+    title: 'Contact',
+    showInNav: true,
+    content: "This is my contact page",
   }
 ];
 

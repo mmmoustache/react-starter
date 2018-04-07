@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Action Creator: updateTerm should match its snapshot 1`] = `
+Object {
+  "text": undefined,
+  "type": "UPDATE_TERM",
+}
+`;

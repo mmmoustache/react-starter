@@ -1,3 +1,39 @@
 .root {
-  color: black;
+  position: relative;
+}
+
+.rootNavOpen {
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.contentWrapper {
+  background: t-colour(General, ContentWrapper);
+}
+
+.skipToMain {
+  bottom: auto;
+  height: t-rem(1px);
+  left: t-rem(9999px);
+  overflow: hidden;
+  position: absolute;
+  width: t-rem(1px);
+  z-index: -9999;
+
+  &:focus {
+    background: #fff;
+    height: auto;
+    position: absolute;
+    left: 0;
+    padding: t-rem(10px);
+    text-decoration: none;
+    text-align: center;
+    top: 0;
+    width: auto;
+    z-index: 999;
+  }
 }
