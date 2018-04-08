@@ -4,12 +4,12 @@ const app = express();
 const compression = require('compression');
 const ServerRendererPath = path.join(__dirname, '../build/server.js');
 const ServerRenderer = require(ServerRendererPath).default;
+const config = require('./site.config');
 
 app.use(compression());
 
-// app.use('/assets', express.static('assets'));
 app.use('/', express.static('build'));
 
 app.use(ServerRenderer());
 
-app.listen(3002, () => console.info(`App running in production at http://localhost:3002`));
+app.listen(config.PORT, () => console.info(`App running in production at http://localhost:${config.PORT}`));

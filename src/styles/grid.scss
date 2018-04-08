@@ -28,7 +28,7 @@
         */
 
   html {
-    background: #666;
+    background: t-colour(General, Background);
     font-family: sans-serif;
 
     /* 1 */
@@ -41,6 +41,8 @@
     -webkit-text-size-adjust: 100%;
 
     /* 3 */
+
+    overflow: hidden;
   }
 
   /* Sections

@@ -3,9 +3,10 @@ import ReactDOMServer from 'react-dom/server';
 import App from './components/App';
 import Html from './components/Html';
 import { Provider } from 'react-redux';
-import allReducers from "./reducers";
-import { createStore } from "redux";
-import { StaticRouter } from "react-router-dom";
+import allReducers from './reducers';
+import { createStore } from 'redux';
+import { StaticRouter } from 'react-router-dom';
+
 const fs = require('fs');
 const util = require('util'); 
 const readFile = util.promisify(fs.readFile);
@@ -21,7 +22,6 @@ async function getJs() {
 export default function serverRenderer() {
 	return async function (req, res) {
 
-		/* For inline styling in production - not yet implemented */
 		const styles = await getStyles().then(data => data.toString());
 		const script = await getJs().then(data => data.toString());
 

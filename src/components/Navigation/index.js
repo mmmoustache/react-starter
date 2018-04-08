@@ -12,7 +12,7 @@ class Navigation extends React.Component {
 			<header className={s.root}>
         <div className="row small-collapse large-uncollapse">
           <div className="column small-12">
-            <Link to="/" className={s.logo} title="React Starter">
+            <Link to="/" className={s.logo} title="React Starter" onClick={isMobile ? handleToggle : () => {}}>
               <img src={Logo} alt="React Starter" className={s.logoImage} />
               <span className={s.logoText}>React Starter</span>
             </Link>

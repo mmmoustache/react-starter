@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { hot } from 'react-hot-loader'
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom'
 
 import s from './App.scss';
 
@@ -53,4 +54,4 @@ function mapStateToProps(state) {
 	};
 }
 
-export default (process.env.NODE_ENV === 'development' ? hot(module)(connect(mapStateToProps, null, null, { pure: false })(App)) : connect(mapStateToProps)(App));
+export default (process.env.NODE_ENV === 'development' ? hot(module)(connect(mapStateToProps, null, null, { pure: false })(App)) : withRouter(connect(mapStateToProps)(App)));

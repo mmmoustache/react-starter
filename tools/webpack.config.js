@@ -5,6 +5,7 @@ const WriteFilePlugin = require('write-file-webpack-plugin');
 const extensions = ['*', '.js', '.jsx', '.css', '.scss'];
 const isDev = process.env.NODE_ENV !== 'production';
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const clientEntry = [
   './src/client.js'
@@ -23,7 +24,13 @@ const clientPlugins = [
   }),
   new CopyWebpackPlugin([
     { from: 'public/', to: '../build/' }
-  ])
+  ]),
+  new HtmlWebpackPlugin({
+    title: `Sorry! 😢 You're not connected to the internet!`,
+    message: 'Please re-connect to the internet and refresh the page.',
+    template: 'src/templates/offline.html',
+    filename: 'offline.html'
+  })
 ];
 
 if (isDev) {

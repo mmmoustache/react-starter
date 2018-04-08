@@ -1,3 +1,6 @@
+@import '../../styles/settings.scss';
+@import '../../styles/tools.scss';
+
 .root {
   position: relative;
 }
@@ -16,16 +19,19 @@
 }
 
 .skipToMain {
+  @include t-layer(sub);
+
   bottom: auto;
   height: t-rem(1px);
   left: t-rem(9999px);
   overflow: hidden;
   position: absolute;
   width: t-rem(1px);
-  z-index: -9999;
 
   &:focus {
-    background: #fff;
+    @include t-layer(top);
+
+    background: t-colour(General, ContentWrapper);
     height: auto;
     position: absolute;
     left: 0;
@@ -34,6 +40,5 @@
     text-align: center;
     top: 0;
     width: auto;
-    z-index: 999;
   }
 }

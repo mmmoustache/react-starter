@@ -24,7 +24,7 @@ $s-colour: (
     Copy: map-get($s-colours, white),
   ),
   General: (
-    Background: map-get($s-colours, black),
+    Background: map-get($s-colours, grey--light),
     Border: map-get($s-colours, grey--light),
     Copy: map-get($s-colours, grey),
     ContentWrapper: map-get($s-colours, white),

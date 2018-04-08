@@ -2,16 +2,12 @@
 @import '../../styles/tools.scss';
 
 .root {
-  color: t-colour(Footer, Copy);
-
   a {
-    color: t-colour(Footer, Copy);
     text-decoration: none;
 
     &:hover,
     &:active,
     &:focus {
-      color: t-colour(Footer, Copy);
       text-decoration: underline;
     }
   }

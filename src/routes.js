@@ -9,7 +9,7 @@ const routes =  [
     component: Home,
     title: 'Home',
     showInNav: false,
-    content: "This is my home page",
+    content: 'This is my home page',
   },
   {
     path: '/about/',
@@ -17,7 +17,7 @@ const routes =  [
     component: Page,
     title: 'About',
     showInNav: true,
-    content: "This is my about page",
+    content: 'This is my about page',
   },
   {
     path: '/contact/',
@@ -25,7 +25,7 @@ const routes =  [
     component: Page,
     title: 'Contact',
     showInNav: true,
-    content: "This is my contact page",
+    content: 'This is my contact page',
   }
 ];
 
