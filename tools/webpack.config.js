@@ -6,9 +6,10 @@ const extensions = ['*', '.js', '.jsx', '.css', '.scss'];
 const isDev = process.env.NODE_ENV !== 'production';
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 const clientEntry = [
-  './src/client.js'
+  './src/client.js',
 ];
 
 const clientPlugins = [
@@ -23,14 +24,18 @@ const clientPlugins = [
     }
   }),
   new CopyWebpackPlugin([
-    { from: 'public/', to: '../build/' }
+    { from: 'public/', to: '../build/' },
   ]),
   new HtmlWebpackPlugin({
     title: `Sorry! 😢 You're not connected to the internet!`,
     message: 'Please re-connect to the internet and refresh the page.',
     template: 'src/templates/offline.html',
     filename: 'offline.html'
-  })
+  }),
+  new ImageminPlugin({
+    disable: process.env.NODE_ENV !== 'production',
+    jpegtran: { progressive: true }
+  }),
 ];
 
 if (isDev) {
@@ -91,7 +96,7 @@ module.exports = [
           use: ['babel-loader']
         },
         { 
-          test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+          test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|svg)$/, 
           loader: 'url-loader?limit=100000'
         }
       ]
@@ -149,7 +154,7 @@ module.exports = [
           use: ['babel-loader']
         },
         { 
-          test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+          test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|svg)$/, 
           loader: 'url-loader?limit=100000'
         }
       ]
@@ -174,7 +179,7 @@ module.exports = [
         'process.env': {
           NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
         }
-      })
+      }),
     ]
   }
 ];

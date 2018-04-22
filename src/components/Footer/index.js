@@ -7,7 +7,7 @@ class Footer extends React.Component {
 			<footer className={s.root}>
         <div className="row">
           <div className="column small-12 text-center">
-            <p>Made with love ❤️</p>
+            <p>Made with love ❤</p>
           </div>
         </div>
       </footer>
