@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom';
 import s from './Navigation.scss';
 import routes from '../../routes';
 import Logo from './Logo.svg';
+import Row from '../Row';
+import Column from '../Column';
 
 class Navigation extends React.Component {
   render() {
     const { navigationIsHidden, handleToggle, isMobile } = this.props;
     return (
 			<header className={s.root}>
-        <div className="row small-collapse large-uncollapse">
-          <div className="column small-12">
+        <Row className="small-collapse large-uncollapse">
+          <Column className="small-12">
             <Link to="/" className={s.logo} title="React Starter" onClick={isMobile ? handleToggle : () => {}}>
               <img src={Logo} alt="React Starter" className={s.logoImage} />
               <span className={s.logoText}>React Starter</span>
@@ -32,8 +34,8 @@ class Navigation extends React.Component {
                 Menu
               </span>
             </button>
-          </div>
-        </div>
+          </Column>
+        </Row>
 			</header>
 		);
 	}

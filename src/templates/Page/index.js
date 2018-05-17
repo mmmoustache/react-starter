@@ -7,7 +7,7 @@ const Page = ({ title, content }) => (
   <div className="row">
     <div className="column small-12">
       <Content>
-        <Helmet>
+        <Helmet defer={false}>
           <title>{title ? title : 'Untitled Page'}</title>
         </Helmet>
         

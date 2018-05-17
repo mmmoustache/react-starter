@@ -7,7 +7,7 @@ const Home = ({ title, content }) => (
   <div className="row">
     <div className="column small-12">
       <Content>
-        <Helmet>
+        <Helmet defer={false}>
           <title>{title ? title : 'Homepage'}</title>
         </Helmet>
 

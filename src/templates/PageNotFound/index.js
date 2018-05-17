@@ -6,7 +6,7 @@ const PageNotFound = () => (
   <div className="row">
     <div className="column small-12">
       <Content>
-        <Helmet>
+        <Helmet defer={false}>
           <title>404 - Page Not Found!</title>
         </Helmet>
         <h1>404</h1>
