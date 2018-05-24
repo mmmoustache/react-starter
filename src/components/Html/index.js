@@ -1,13 +1,13 @@
 import React from 'react';// eslint-disable-line
 
-function MarkUp(markup, data, styles, script, env) {
+function MarkUp(markup, data, meta, styles, script, env) {
 	return `<!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>JC Starter</title>
-	<meta name="description" content="JC Starter">
+	${meta ? meta.title.toString() : 'Untitled Page'}
+	${meta ? meta.meta.toString() : ''}
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,7 +30,7 @@ function MarkUp(markup, data, styles, script, env) {
 </html>`;
 }
 
-export default ({markup, data, styles, script, env}) => {
-	const markUp = MarkUp(markup, data, styles, script, env);
+export default ({markup, data, meta, styles, script, env}) => {
+	const markUp = MarkUp(markup, data, meta, styles, script, env);
 	return env === 'development' ?	markUp : markUp.replace(/\n|\t/g, '');
 };

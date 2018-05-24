@@ -23,7 +23,7 @@ if ('serviceWorker' in navigator) {
 }
 
 const store = createStore(
-  allReducers
+  allReducers,
 );
 
 ReactDOM.hydrate(

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import {Helmet} from "react-helmet";
 import App from './components/App';
 import Html from './components/Html';
 import { Provider } from 'react-redux';
@@ -39,6 +40,15 @@ export default function serverRenderer() {
 			</StaticRouter>
 		);
 
-		res.status(200).send(Html({markup: markup, data: {}, styles: styles, script: script, env: process.env.NODE_ENV}));
+		const meta = Helmet.renderStatic();
+
+		res.status(200).send(Html({
+			markup, 
+			data: {},
+			meta,
+			styles,
+			script, 
+			env: process.env.NODE_ENV
+		}));
 	}
 }

@@ -25,6 +25,7 @@ const clientPlugins = [
   }),
   new CopyWebpackPlugin([
     { from: 'public/', to: '../build/' },
+    { from: isDev ? 'src/templates/robots.dev.txt' : 'src/templates/robots.prod.txt', to: '../build/robots.txt' },
   ]),
   new HtmlWebpackPlugin({
     title: `Sorry! 😢 You're not connected to the internet!`,
@@ -33,7 +34,7 @@ const clientPlugins = [
     filename: 'offline.html'
   }),
   new ImageminPlugin({
-    disable: process.env.NODE_ENV !== 'production',
+    disable: isDev,
     jpegtran: { progressive: true }
   }),
 ];
@@ -44,6 +45,9 @@ if (isDev) {
   );
   clientPlugins.push(
     new webpack.HotModuleReplacementPlugin()
+  );
+  clientPlugins.push(
+    new WriteFilePlugin()
   );
 }
 
@@ -102,7 +106,7 @@ module.exports = [
       ]
     },
     resolve: {
-      extensions: extensions
+      extensions,
     },
     plugins: clientPlugins
   },
@@ -160,7 +164,7 @@ module.exports = [
       ]
     },
     resolve: {
-      extensions: extensions
+      extensions,
     },
     plugins: [
       new ExtractTextPlugin({

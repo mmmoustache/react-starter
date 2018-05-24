@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from "react-helmet";
 import Content from '../../components/ContentWrapper';
+import Row from '../../components/Row';
+import Column from '../../components/Column';
 
 const Page = ({ title, content }) => (
-  <div className="row">
-    <div className="column small-12">
+  <Row>
+    <Column small={12}>
       <Content>
         <Helmet defer={false}>
           <title>{title ? title : 'Untitled Page'}</title>
@@ -19,8 +21,8 @@ const Page = ({ title, content }) => (
             : null
         }
       </Content>
-    </div>
-  </div>
+    </Column>
+  </Row>
 );
 
 Page.propTypes = {
