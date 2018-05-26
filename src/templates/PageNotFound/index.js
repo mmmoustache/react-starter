@@ -1,8 +1,7 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
 import Content from '../../components/ContentWrapper';
-import Row from '../../components/Row';
-import Column from '../../components/Column';
+import { Row, Column } from 'react-foundation';
 
 const PageNotFound = () => (
   <Row>

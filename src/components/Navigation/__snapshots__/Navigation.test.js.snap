@@ -31,14 +31,9 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <Row
-        className="small-collapse large-uncollapse"
-      >
+      "children": <Row>
         <Column
-          className="small-12"
-          large={undefined}
-          medium={undefined}
-          small={undefined}
+          small={12}
         >
           <Link
             className={undefined}
@@ -58,6 +53,17 @@ ShallowWrapper {
               React Starter
             </span>
           </Link>
+          <button
+            className={undefined}
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              className={undefined}
+            >
+              Menu
+            </span>
+          </button>
           <nav
             className={undefined}
           >
@@ -92,17 +98,6 @@ ShallowWrapper {
               </li>
             </ul>
           </nav>
-          <button
-            className={undefined}
-            onClick={[Function]}
-            type="button"
-          >
-            <span
-              className={undefined}
-            >
-              Menu
-            </span>
-          </button>
         </Column>
       </Row>,
       "className": undefined,
@@ -114,10 +109,7 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": <Column
-          className="small-12"
-          large={undefined}
-          medium={undefined}
-          small={undefined}
+          small={12}
         >
           <Link
             className={undefined}
@@ -137,6 +129,17 @@ ShallowWrapper {
               React Starter
             </span>
           </Link>
+          <button
+            className={undefined}
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              className={undefined}
+            >
+              Menu
+            </span>
+          </button>
           <nav
             className={undefined}
           >
@@ -171,19 +174,7 @@ ShallowWrapper {
               </li>
             </ul>
           </nav>
-          <button
-            className={undefined}
-            onClick={[Function]}
-            type="button"
-          >
-            <span
-              className={undefined}
-            >
-              Menu
-            </span>
-          </button>
         </Column>,
-        "className": "small-collapse large-uncollapse",
       },
       "ref": null,
       "rendered": Object {
@@ -210,6 +201,17 @@ ShallowWrapper {
                 React Starter
               </span>
             </Link>,
+            <button
+              className={undefined}
+              onClick={[Function]}
+              type="button"
+            >
+              <span
+                className={undefined}
+              >
+                Menu
+              </span>
+            </button>,
             <nav
               className={undefined}
             >
@@ -244,22 +246,8 @@ ShallowWrapper {
                 </li>
               </ul>
             </nav>,
-            <button
-              className={undefined}
-              onClick={[Function]}
-              type="button"
-            >
-              <span
-                className={undefined}
-              >
-                Menu
-              </span>
-            </button>,
           ],
-          "className": "small-12",
-          "large": undefined,
-          "medium": undefined,
-          "small": undefined,
+          "small": 12,
         },
         "ref": null,
         "rendered": Array [
@@ -315,6 +303,35 @@ ShallowWrapper {
               },
             ],
             "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <span
+                className={undefined}
+              >
+                Menu
+              </span>,
+              "className": undefined,
+              "onClick": [Function],
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Menu",
+                "className": undefined,
+              },
+              "ref": null,
+              "rendered": "Menu",
+              "type": "span",
+            },
+            "type": "button",
           },
           Object {
             "instance": null,
@@ -466,35 +483,6 @@ ShallowWrapper {
             },
             "type": "nav",
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": <span
-                className={undefined}
-              >
-                Menu
-              </span>,
-              "className": undefined,
-              "onClick": [Function],
-              "type": "button",
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Menu",
-                "className": undefined,
-              },
-              "ref": null,
-              "rendered": "Menu",
-              "type": "span",
-            },
-            "type": "button",
-          },
         ],
         "type": [Function],
       },
@@ -508,14 +496,9 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <Row
-          className="small-collapse large-uncollapse"
-        >
+        "children": <Row>
           <Column
-            className="small-12"
-            large={undefined}
-            medium={undefined}
-            small={undefined}
+            small={12}
           >
             <Link
               className={undefined}
@@ -535,6 +518,17 @@ ShallowWrapper {
                 React Starter
               </span>
             </Link>
+            <button
+              className={undefined}
+              onClick={[Function]}
+              type="button"
+            >
+              <span
+                className={undefined}
+              >
+                Menu
+              </span>
+            </button>
             <nav
               className={undefined}
             >
@@ -569,17 +563,6 @@ ShallowWrapper {
                 </li>
               </ul>
             </nav>
-            <button
-              className={undefined}
-              onClick={[Function]}
-              type="button"
-            >
-              <span
-                className={undefined}
-              >
-                Menu
-              </span>
-            </button>
           </Column>
         </Row>,
         "className": undefined,
@@ -591,10 +574,7 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "children": <Column
-            className="small-12"
-            large={undefined}
-            medium={undefined}
-            small={undefined}
+            small={12}
           >
             <Link
               className={undefined}
@@ -614,6 +594,17 @@ ShallowWrapper {
                 React Starter
               </span>
             </Link>
+            <button
+              className={undefined}
+              onClick={[Function]}
+              type="button"
+            >
+              <span
+                className={undefined}
+              >
+                Menu
+              </span>
+            </button>
             <nav
               className={undefined}
             >
@@ -648,19 +639,7 @@ ShallowWrapper {
                 </li>
               </ul>
             </nav>
-            <button
-              className={undefined}
-              onClick={[Function]}
-              type="button"
-            >
-              <span
-                className={undefined}
-              >
-                Menu
-              </span>
-            </button>
           </Column>,
-          "className": "small-collapse large-uncollapse",
         },
         "ref": null,
         "rendered": Object {
@@ -687,6 +666,17 @@ ShallowWrapper {
                   React Starter
                 </span>
               </Link>,
+              <button
+                className={undefined}
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className={undefined}
+                >
+                  Menu
+                </span>
+              </button>,
               <nav
                 className={undefined}
               >
@@ -721,22 +711,8 @@ ShallowWrapper {
                   </li>
                 </ul>
               </nav>,
-              <button
-                className={undefined}
-                onClick={[Function]}
-                type="button"
-              >
-                <span
-                  className={undefined}
-                >
-                  Menu
-                </span>
-              </button>,
             ],
-            "className": "small-12",
-            "large": undefined,
-            "medium": undefined,
-            "small": undefined,
+            "small": 12,
           },
           "ref": null,
           "rendered": Array [
@@ -792,6 +768,35 @@ ShallowWrapper {
                 },
               ],
               "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <span
+                  className={undefined}
+                >
+                  Menu
+                </span>,
+                "className": undefined,
+                "onClick": [Function],
+                "type": "button",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Menu",
+                  "className": undefined,
+                },
+                "ref": null,
+                "rendered": "Menu",
+                "type": "span",
+              },
+              "type": "button",
             },
             Object {
               "instance": null,
@@ -942,35 +947,6 @@ ShallowWrapper {
                 "type": "ul",
               },
               "type": "nav",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <span
-                  className={undefined}
-                >
-                  Menu
-                </span>,
-                "className": undefined,
-                "onClick": [Function],
-                "type": "button",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Menu",
-                  "className": undefined,
-                },
-                "ref": null,
-                "rendered": "Menu",
-                "type": "span",
-              },
-              "type": "button",
             },
           ],
           "type": [Function],

@@ -29,6 +29,7 @@
   background: t-colour(Navigation, Mobile);
   float: left;
   height: 100%;
+  left: 0;
   overflow: hidden;
   position: fixed;
   width: 100%;
@@ -89,17 +90,14 @@
   float: left;
   height: t-rem(40px);
   width: t-rem(40px);
-  margin: t-rem(10px 0 10px 10px);
-
-  @include t-breakpoint-min (medium) {
-    margin: t-rem(10px 0);
-  }
+  margin: t-rem(10px 0);
 }
 
 .logoText {
+  @include CopyBold;
+
   display: block;
   float: left;
-  font-family: 'open_sansbold', Arial, Helvetica, sans-serif;
   padding: t-rem(18px 18px 18px 10px);
 }
 
@@ -110,7 +108,7 @@
   height: 100%;
   position: absolute;
   right: 0;
-  text-indent: -9999px;
+  text-indent: t-rem(-9999px);
   top: 0;
   width: t-rem(54px);
 
@@ -121,11 +119,11 @@
 
 .toggleInner {
   @include t-centerer;
+  @include t-transition(short, default, background);
 
   background: t-colour(General, Primary);
   display: block;
   height: t-rem(1px);
-  transition: 0.2s background ease-in-out;
   width: t-rem(20px);
 
   &::before {

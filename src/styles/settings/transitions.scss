@@ -1,0 +1,12 @@
+$s-transition-times: (
+  short: 0.2s,
+  medium: 0.5s,
+  long: 0.7s,
+  xlong: 1s
+);
+
+$s-transition-timings: (
+  default: ease,
+  easein: ease-in,
+  easeinout: ease-in-out
+);

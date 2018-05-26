@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from "react-helmet";
 import Content from '../../components/ContentWrapper';
-import Row from '../../components/Row';
-import Column from '../../components/Column';
+import { Row, Column } from 'react-foundation';
 
 const Home = ({ title, content }) => (
   <Row>
@@ -11,6 +10,7 @@ const Home = ({ title, content }) => (
       <Content>
         <Helmet defer={false}>
           <title>{title ? title : 'Homepage'}</title>
+          <meta name="description" content={title} />
         </Helmet>
 
         { <h1>{title ? title : 'Homepage'}</h1> }

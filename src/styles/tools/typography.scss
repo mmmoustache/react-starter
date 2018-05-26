@@ -12,3 +12,11 @@
     margin: 0 0 t-spacing(vertical);
   }
 }
+
+@mixin Copy {
+  font-family: 'open_sansregular', Arial, Helvetica, sans-serif;
+}
+
+@mixin CopyBold {
+  font-family: 'open_sansbold', Arial, Helvetica, sans-serif;
+}

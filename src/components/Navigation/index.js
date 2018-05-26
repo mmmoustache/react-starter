@@ -4,20 +4,24 @@ import { Link } from 'react-router-dom';
 import s from './Navigation.scss';
 import routes from '../../routes';
 import Logo from './Logo.svg';
-import Row from '../Row';
-import Column from '../Column';
+import { Row, Column } from 'react-foundation';
 
 class Navigation extends React.Component {
   render() {
     const { navigationIsHidden, handleToggle, isMobile } = this.props;
     return (
 			<header className={s.root}>
-        <Row className="small-collapse large-uncollapse">
-          <Column className="small-12">
+        <Row>
+          <Column small={12}>
             <Link to="/" className={s.logo} title="React Starter" onClick={isMobile ? handleToggle : () => {}}>
               <img src={Logo} alt="React Starter" className={s.logoImage} />
               <span className={s.logoText}>React Starter</span>
             </Link>
+            <button type="button" onClick={isMobile ? handleToggle : () => {}} className={s.toggle}>
+              <span className={navigationIsHidden ? s.toggleInner : s.toggleInnerActive}>
+                Menu
+              </span>
+            </button>
             <nav className={navigationIsHidden ? s.listHidden : s.list}>
               <ul className={s.listInner}>
                 {
@@ -29,11 +33,6 @@ class Navigation extends React.Component {
                 }
               </ul>
             </nav>
-            <button type="button" onClick={isMobile ? handleToggle : () => {}} className={s.toggle}>
-              <span className={navigationIsHidden ? s.toggleInner : s.toggleInnerActive}>
-                Menu
-              </span>
-            </button>
           </Column>
         </Row>
 			</header>
