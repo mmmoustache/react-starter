@@ -1,6 +1,6 @@
 # React Starter
 
-This is another R + Redux starter project using Webpack 3, React Router with Server side rendering and Jest unit testing.
+This is a simple React + Redux starter project using Webpack 3, React Router with Server side rendering and Jest unit testing.
 
 
 ## Features
@@ -58,22 +58,5 @@ This is another R + Redux starter project using Webpack 3, React Router with Ser
 
 
 TODO
-🗳️ Optimization
-🗳️ Cookie notice
-
-🗳️ Progressive Web App stuff
-  - offline page - finish, maybe auto-generate html file with https://github.com/jantimon/html-webpack-plugin
-🗳️ Add some more useful plugins
-  - https://github.com/webpro/release-it
-  ️- a11y tools
-  - image optimization - https://github.com/Klathmon/imagemin-webpack-plugin
-  - additional webpack tools
-    - modernizr?
-    - https://github.com/webpack-contrib/compression-webpack-plugin
-    - https://github.com/webpack-contrib/webpack-bundle-analyzer
-
-🗳️ Automated browser testing
-
-Possibly swap out custom service worker for webpack offline plugin (easier for users to configure) https://github.com/NekR/offline-plugin
-Upgrade to Webpack 4 with mini-css-extract-plugin
-Get code coverage higher
+🗳️ GDPR compliant Cookie notice
+🗳️ Upgrade to Webpack 4 with mini-css-extract-plugin
