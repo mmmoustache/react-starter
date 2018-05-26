@@ -47,7 +47,9 @@ if (isDev) {
     new webpack.HotModuleReplacementPlugin()
   );
   clientPlugins.push(
-    new WriteFilePlugin()
+    new WriteFilePlugin({
+      test: /^(?!.*(hot)).*/,
+    })
   );
 }
 
