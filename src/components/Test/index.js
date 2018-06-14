@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Test = ({ updateTerm, activeTerm }) => (
   <div>
     <p>{ activeTerm ? activeTerm : `Hello there!` }</p>
-    <button type="button" onClick={() => updateTerm('Tee-hee, that tickles!')}>Click Me!</button>
+    <button type="button" onClick={() => updateTerm('Hey, that tickles!')}>Click Me!</button>
   </div>
 );
 

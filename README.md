@@ -57,6 +57,12 @@ This is a simple React + Redux starter project using Webpack 3, React Router wit
 `yarn coverage`
 
 
+## Content / Pages / Navigation
+
+By default, this project is populated by the `routes.js` file in the `src` folder; this contains an array of objects containing all pages/content for your project.
+
+
 TODO
 🗳️ GDPR compliant Cookie notice
 🗳️ Upgrade to Webpack 4 with mini-css-extract-plugin
+🗳️ Improve documentation

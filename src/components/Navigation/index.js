@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Row, Column } from 'react-foundation';
 import s from './Navigation.scss';
 import routes from '../../routes';
 import Logo from './Logo.svg';
-import { Row, Column } from 'react-foundation';
 
 class Navigation extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
-import s from './Footer.scss';
 import { Row, Column } from 'react-foundation';
+import s from './Footer.scss';
 
 class Footer extends React.Component {
   render() {

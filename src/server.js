@@ -13,11 +13,19 @@ const util = require('util');
 const readFile = util.promisify(fs.readFile);
 
 async function getStyles() {
-  return await readFile('build/client.css', (err, data) => data);
+	try {
+		return await readFile('build/client.css', (err, data) => data);
+	} catch(error) {
+		return `Couldn't retrieve css: ${error}`;
+	}
 }
 
 async function getJs() {
-  return await readFile('build/client.js', (err, data) => data);
+	try {
+		return await readFile('build/client.js', (err, data) => data);
+	} catch(error) {
+		return `Couldn't retrieve js: ${error}`;
+	}
 }
 
 export default function serverRenderer() {
@@ -27,7 +35,7 @@ export default function serverRenderer() {
 		const script = await getJs().then(data => data.toString());
 
 		const store = createStore(
-			allReducers
+			allReducers,
 		);
 
     const context = {};
