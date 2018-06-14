@@ -25,7 +25,7 @@
   height: t-rem(1px);
   left: t-rem(9999px);
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   width: t-rem(1px);
 
   &:focus {
